@@ -33,6 +33,8 @@ public class ScreenCaptureSaver : MonoBehaviour
             byte[] printBytes = CreateTextureFromGameView().EncodeToPNG();
 
             CreateFileOnLocation(printBytes);
+            
+            objectsToPrint[i].SetActive(false);
         }
     }
 
