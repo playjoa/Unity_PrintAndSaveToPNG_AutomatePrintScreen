@@ -32,7 +32,7 @@ public class ScreenCaptureSaver : MonoBehaviour
 
             byte[] printBytes = CreateTextureFromGameView().EncodeToPNG();
 
-            CreateFileOnLocation(printBytes);
+            CreateFileOnLocation(printBytes, i);
             
             objectsToPrint[i].SetActive(false);
         }
@@ -76,11 +76,11 @@ public class ScreenCaptureSaver : MonoBehaviour
         return tex;
     }
 
-    void CreateFileOnLocation(byte printBytes)
+    void CreateFileOnLocation(byte printBytes, int currentPicture)
     {
         CheckIfLocationExists_CreateIfNecessary();
             
-        var path = System.IO.Path.Combine(FolderLocation(), FileName(i));
+        var path = System.IO.Path.Combine(FolderLocation(), FileName(currentPicture));
         System.IO.File.WriteAllBytes(path, bytes);
     }
 
